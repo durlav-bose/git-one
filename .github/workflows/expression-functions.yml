@@ -35,6 +35,13 @@ jobs:
       - name: Parse JSON string
         run: |
           echo "Parsed JSON: ${{ fromJSON('{"hello":"world"}').hello }}"
+      - name: Get current time and steps
+        run: |
+          echo "Steps: ${{ toJSON(steps) }}"
+          echo "Current time: ${{ steps.time.outputs.time }}"
+        id: time
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Hash files
         run: |
           echo "Hash of files: ${{ hashFiles('**/package-lock.json', '**/Gemfile.lock') }}"
