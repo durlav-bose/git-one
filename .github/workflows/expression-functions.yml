@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Github details
         run: |
-          echo "github ::: ${{ github }}"
+          echo "github ::: ${{ toJSON(github) }}"
       - name: Check if string contains substring
         if: contains('Hello world', 'llo')
         run: echo "The string contains the substring."
