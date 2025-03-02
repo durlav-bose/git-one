@@ -2,7 +2,7 @@ name: example-workflow
 on: [push]
 jobs:
   hello-world:
-    if: github.repository == 'durlav-bose/git-one'
+    if: ${{ github.repository }} == 'durlav-bose/git-one'
     runs-on: ubuntu-latest
     steps:
       - name: "Hello World"
