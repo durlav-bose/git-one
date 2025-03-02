@@ -10,15 +10,10 @@ jobs:
   goodbye-moon:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug event
+        run: echo '${{ toJSON(github.event) }}'
       - name: "Goodbye Moon"
         run:  |
           echo "Goodbye Moon!"
-          echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
-          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
-          echo "GITHUB_SHA: $GITHUB_SHA"
-          echo "GITHUB_REF: $GITHUB_REF"
-          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
-          echo "GITHUB_RUN_ID: $GITHUB_RUN_ID"
-          # List all available environment variables
           echo "All environment variables:"
           env | grep GITHUB_
